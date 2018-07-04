@@ -71,9 +71,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            <div class="container">
-                <div class="row">
+        <div class="container">
+            <div class="row">
+                @if(Auth::check())
                     <div class="col-lg-4">
                         <ul class="list-group">
                             <li class="list-group-item">
@@ -82,18 +82,18 @@
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/post/create">
+                                <a href="{{ route('post.create') }}">
                                     Create new post
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-8">
-                        @yield('content')
-                    </div>
-                </row>
-            </div>
-        </main>
+                @endif
+                <div class="col-lg-8">
+                    @yield('content')
+                </div>
+            </row>
+        </div>
     </div>
 </body>
 </html>
